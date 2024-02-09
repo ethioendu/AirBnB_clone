@@ -6,6 +6,7 @@
 from datetime import datetime
 import uuid
 
+time = "%Y-%m-%dT%H:%M:%S.%f"
 class BaseModel:
     """
     """
@@ -13,7 +14,6 @@ class BaseModel:
         """
         """
         if kwargs:
-            time = "%Y-%m-%dT%H:%M:%S.%f"
             kwargs.pop("__class__", None)
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
@@ -41,6 +41,8 @@ class BaseModel:
         """
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
-        obj_dict['created_at'] = self.created_at.isoformat()
-        obj_dict['updated_at'] = self.updated_at.isoformat()
+        if 'created_at' in obj_dict:
+            obj_dict['created_at'] = obj_dict['created_at'].strftime(time)
+        if 'updated_at' in obj_dict:
+            obj_dict['updated_at'] = obj_dict['updated_at'].strftime(time)
         return obj_dict
