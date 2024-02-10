@@ -4,6 +4,7 @@
 import cmd
 import shlex
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -163,7 +164,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """skips to new prompt 
+        """skips to new prompt
         """
         pass
 

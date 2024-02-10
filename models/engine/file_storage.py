@@ -43,6 +43,7 @@ class FileStorage:
                 obj_dict = json.load(f)
 
             from models.base_model import BaseModel
+            from models.user import User
             for key, value in obj_dict.items():
                 class_name, obj_id = key.split(".")
                 model_class = eval(class_name)
