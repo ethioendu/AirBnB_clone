@@ -43,3 +43,5 @@ class FileStorage:
                 model_class = eval(class_name)
                 obj = model_class(**value)
                 self.new(obj)
+        except:
+            pass
