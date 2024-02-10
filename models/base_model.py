@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
 """
-
-
 from datetime import datetime
 import uuid
 from models.__init__ import storage
 
 time = "%Y-%m-%dT%H:%M:%S.%f"
+
+
 class BaseModel:
     """
     """

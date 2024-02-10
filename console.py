@@ -6,6 +6,7 @@ import shlex
 from models.base_model import BaseModel
 from models import storage
 
+
 class HBNBCommand(cmd.Cmd):
     """
     """
@@ -36,7 +37,6 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-
 
         args = shlex.split(args)
         class_name = args[0]
@@ -143,8 +143,6 @@ class HBNBCommand(cmd.Cmd):
         setattr(obj, attribute_name, attribute_value)
         obj.save()
 
-
-
     def do_quit(self, arg):
         """Quit command to exit the program
         """
@@ -160,6 +158,7 @@ class HBNBCommand(cmd.Cmd):
         """
         """
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
