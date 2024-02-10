@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""
+"""consol model contains class HBNBCommand
 """
 import cmd
 import shlex
@@ -8,13 +8,17 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """
+    """class that inherice from cmd.Cmd
+       it has prompt (Hbnb) and close with 'quit'
     """
     prompt = "(hbnb) "
     my_class = {"BaseModel"}
 
     def do_create(self, args):
-        """
+        """creates a class
+        Usage: create <class Name>
+        <class Name> should be from given options
+        >BaseModel
         """
         if not args:
             print("** class name missing **")
@@ -32,7 +36,8 @@ class HBNBCommand(cmd.Cmd):
         print(obj.id)
 
     def do_show(self, args):
-        """
+        """displays mentioned class info
+        Usage: show <class Name> <id>
         """
         if not args:
             print("** class name missing **")
@@ -60,7 +65,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, args):
-        """
+        """delete a given class
+        Usage: destroy <class name> <id>
         """
         if not args:
             print("** class name missing **")
@@ -88,7 +94,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, args):
-        """
+        """display all classes
+        USage: all <class Name>
         """
         if args:
             class_name = args.split()[0]
@@ -104,7 +111,8 @@ class HBNBCommand(cmd.Cmd):
         print(objs)
 
     def do_update(self, args):
-        """
+        """updates simple information str, number...
+        Usage update <class> <id> <key> <value>
         """
         if not args:
             print("** class name missing **")
@@ -149,13 +157,13 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_EOF(self, arg):
-        """
+        """Quit command to exit the prgram by Ctr+D
         """
         print()
         return True
 
     def emptyline(self):
-        """
+        """skips to new prompt 
         """
         pass
 
