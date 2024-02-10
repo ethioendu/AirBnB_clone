@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""
+"""a module that contains class BaseModel
 """
 from datetime import datetime
 import uuid
@@ -9,10 +9,15 @@ time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
-    """
+    """class BaseModel that contains methods
+    instatlize with uniq id
+    string represtation
+    dictionary represtation
+    saves to a json file
     """
     def __init__(self,  *args, **kwargs):
-        """
+        """inistantization with uniq id if no arguments
+        else sets attribute with specific information
         """
         if kwargs:
             kwargs.pop("__class__", None)
@@ -28,20 +33,20 @@ class BaseModel:
             storage.save()
 
     def __str__(self):
-        """
+        """string represtantion
         """
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id,
                                      self.__dict__)
 
     def save(self):
-        """
+        """saves to a storage
         """
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
-        """
+        """dictionary represtation of data
         """
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
