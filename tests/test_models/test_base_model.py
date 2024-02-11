@@ -28,5 +28,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("__class__", base_model_dict)
         self.assertEqual(base_model_dict["__class__"], "BaseModel")
 
+    def test_str_rep(self):
+        base_model = BaseModel()
+        expected_str = "[BaseModel] ({}) {}".format(base_model.id,
+                                                    base_model.__dict__)
+        self.assertEqual(str(base_model), expected_str)
+
 if __name__ == "__main__":
     unittest.main()
