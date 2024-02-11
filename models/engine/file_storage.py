@@ -48,7 +48,7 @@ class FileStorage:
             from models.city import City
             from models.amenity import Amenity
             from models.place import Place
-            from models.review import review
+            from models.review import Review
             for key, value in obj_dict.items():
                 class_name, obj_id = key.split(".")
                 model_class = eval(class_name)
