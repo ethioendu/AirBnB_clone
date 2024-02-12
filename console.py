@@ -163,6 +163,65 @@ class HBNBCommand(cmd.Cmd):
         setattr(obj, attribute_name, attribute_value)
         obj.save()
 
+    def default(self, line):
+        """Handles different methods of the form starting with class name
+        then followed by a method
+        Usage: <class name>.method()
+        """
+        args = line.split('.')
+        if len(args) < 2:
+            if args[0] in self.my_class:
+                print("** method missing **")
+            else:
+                print("** unkown command **")
+            return
+
+        cl = args[0]
+        method_args = args[1].split('(')
+        method_name = method_args[0]
+        if cl not in self.my_class:
+            print("** class doesn't exist **")
+        else:
+            o = storage.all()
+            ins = [obj for obj in o.values() if type(obj).__name__ == cl]
+            if method_name == 'all':
+                print([str(obj) for obj in ins])
+            elif method_name == 'count':
+                print(len(ins))
+            elif method_name == 'show':
+                if len(method_args) < 2 or not method_args[1].endswith(')'):
+                    print("** instance id missing **")
+                else:
+                    instance_id = method_args[1][:-1]
+                    key = class_name + "." + instance_id
+                    if key in objects:
+                        print(objects[key])
+                    else:
+                        print("** no instance found **")
+            else:
+                print("** method doesn't exist **")
+
+    def do_count(self, args):
+        """Counts the number of instances of a specific class
+        Usage: count <ClassName>
+        """
+        if not args:
+            print("** class name missing **")
+            return
+
+        class_name = args.split()[0]
+
+        if class_name not in self.my_class:
+            print("** class doesn't exist **")
+            return
+
+        instance_count = 0
+        objects = storage.all()
+        for obj in objects.values():
+            if type(obj).__name__ == class_name:
+                instance_count += 1
+        print(instance_count)
+
     def do_quit(self, arg):
         """Quit command to exit the program
         """
