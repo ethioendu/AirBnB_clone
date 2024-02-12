@@ -198,6 +198,17 @@ class HBNBCommand(cmd.Cmd):
                         print(o[key])
                     else:
                         print("** no instance found **")
+            elif method_name == 'destroy':
+                if len(method_args) < 2 or not method_args[1].endswith(')'):
+                    print("** instance id missing **")
+                else:
+                    obj_id = method_args[1][:-1]
+                    key = "{}.{}".format(cl, obj_id)
+                    if key in o:
+                        del o[key]
+                        storage.save()
+                    else:
+                        print("** no instance found **")
             else:
                 print("** method doesn't exist **")
 
