@@ -192,10 +192,10 @@ class HBNBCommand(cmd.Cmd):
                 if len(method_args) < 2 or not method_args[1].endswith(')'):
                     print("** instance id missing **")
                 else:
-                    instance_id = method_args[1][:-1]
-                    key = class_name + "." + instance_id
-                    if key in objects:
-                        print(objects[key])
+                    obj_id = method_args[1][:-1]
+                    key = "{}.{}".format(cl, obj_id)
+                    if key in o:
+                        print(o[key])
                     else:
                         print("** no instance found **")
             else:
