@@ -1,0 +1,13 @@
+/*css files for footer style*/
+footer {
+  position: absolute;
+  bottom:0;
+  background-color:#00FF00;
+  height:60px;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  line-height:30px;
+}
