@@ -1,0 +1,59 @@
+.filters {
+  /* Filters section styles */
+  background-color: white;
+  height: 70px;
+  width: 100%;
+  border: 1px solid #DDDDDD;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.filters button {
+  font-size: 18px;
+  background-color: #FF5A5F;
+  color: #FFFFFF;
+  height: 48px;
+  width: 20%;
+  border: none;
+  border-radius: 4px;
+  margin-left: auto;
+  margin-right: 30px;
+}
+.filters button:hover {
+    opacity: 0.9;
+}
+
+.locations {
+  /* Location filter styles */
+  text-align: left;
+  height: 100%;
+  width: 25%;
+  border-right: solid 1px #DDDDDD;
+  margin-left: 30px;
+  float: left;
+}
+
+.amenities {
+  /* Amenities filter styles */
+  text-align: left;
+  height: 100%;
+  width: 25%;
+  margin-left: 30px;
+  float: left;
+}
+
+h3{
+  /* heading 3 style */
+  font-weight: 600;
+  margin: 0px;
+  margin-top: 17px;
+  padding: 0px;
+}
+h4{
+  /* heading 4 style */
+  margin: 0px;
+  padding: 0px;
+  font-weight: 400;
+  font-size: 14px;
+}
